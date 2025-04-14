@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useUser } from "@clerk/clerk-react";
+import Pots from "../components/Pots";
 
 function Dashboard() {
   const { isSignedIn, user } = useUser();
@@ -34,6 +35,11 @@ function Dashboard() {
         <div className="border w-[30%] p-4 rounded">
           <p className="text-sm mb-2">Current Balance</p>
           <p className="text-2xl font-bold">Rs.14500</p>
+        </div>
+      </div>
+      <div>
+        <div className="w-[55%] mt-8">
+          <Pots />
         </div>
       </div>
     </div>
