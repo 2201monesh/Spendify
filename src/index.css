@@ -5,3 +5,7 @@
   --primary-text-color: #F9F9F9;
   --border-color: #27272A;
 }
+
+*{
+  font-family: sans-serif;
+}

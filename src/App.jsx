@@ -9,7 +9,7 @@ function App() {
       <Header />
       <div className="w-screen flex justify-center">
         <div
-          className="w-[75%] h-screen border-l border-r border-dashed p-4"
+          className="w-[75%] h-screen border-l border-r border-dashed"
           style={{ height: "calc(100vh - 60px)" }}
         >
           <Router>
