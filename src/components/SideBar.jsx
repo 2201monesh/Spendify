@@ -7,7 +7,7 @@ import PersonalInfo from "./PersonalInfo";
 
 function SideBar() {
   return (
-    <div className="w-[15%] h-screen p-4 bg-[#FAFAFA] flex flex-col justify-between">
+    <div className="w-[15%] h-screen p-4 bg-[#FAFAFA] flex flex-col justify-between shadow-md">
       <div>
         <p className="text-xl mb-4 ml-2">Spendify</p>
         <SidebarOptions logo={<MdOutlineDashboard />} text="Dashboard" />

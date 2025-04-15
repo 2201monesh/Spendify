@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useUser } from "@clerk/clerk-react";
 import Pots from "../components/Pots";
 import SideBar from "../components/SideBar";
+import Main from "../components/Main";
 
 function Dashboard() {
   const { isSignedIn, user } = useUser();
@@ -23,8 +24,9 @@ function Dashboard() {
   }, [isSignedIn, user]);
 
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen flex">
       <SideBar />
+      <Main />
     </div>
   );
 }
