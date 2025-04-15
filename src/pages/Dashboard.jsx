@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useUser } from "@clerk/clerk-react";
 import Pots from "../components/Pots";
+import SideBar from "../components/SideBar";
 
 function Dashboard() {
   const { isSignedIn, user } = useUser();
@@ -22,26 +23,8 @@ function Dashboard() {
   }, [isSignedIn, user]);
 
   return (
-    <div className="p-4">
-      <div className="flex justify-between items-center mt-6">
-        <div className="border w-[30%] p-4 rounded">
-          <p className="text-sm mb-2">Current Balance</p>
-          <p className="text-2xl font-bold">Rs.500</p>
-        </div>
-        <div className="border w-[30%] p-4 rounded">
-          <p className="text-sm mb-2">Income</p>
-          <p className="text-2xl font-bold">Rs.15000</p>
-        </div>
-        <div className="border w-[30%] p-4 rounded">
-          <p className="text-sm mb-2">Current Balance</p>
-          <p className="text-2xl font-bold">Rs.14500</p>
-        </div>
-      </div>
-      <div>
-        <div className="w-[55%] mt-8">
-          <Pots />
-        </div>
-      </div>
+    <div className="w-screen h-screen">
+      <SideBar />
     </div>
   );
 }
