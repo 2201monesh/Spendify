@@ -1,5 +1,6 @@
 import React from "react";
 import StatsCard from "./StatsCard";
+import ChartSection from "./ChartSection";
 
 function Main() {
   return (
@@ -9,6 +10,9 @@ function Main() {
         <StatsCard text="Current Balance" amount="$550" />
         <StatsCard text="Income" amount="$1500" />
         <StatsCard text="Expenses" amount="$1050" />
+      </div>
+      <div className="p-4">
+        <ChartSection />
       </div>
     </div>
   );
