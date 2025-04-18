@@ -11,6 +11,10 @@ import { useAppContext } from "../context/AppContext";
 function SideBar() {
   const { isModalOpen, setIsModalOpen, setUserAmountList } = useAppContext();
 
+  const handleClick = () => {
+    console.log("jhgfvghjiuhgfghjui");
+  };
+
   const handleFormSubmit = (data) => {
     console.log("Submitted User Amount List:", data);
     setUserAmountList((prev) => {
@@ -38,7 +42,11 @@ function SideBar() {
         />
         <SidebarOptions logo={<MdOutlineDashboard />} text="Dashboard" />
         <SidebarOptions logo={<TbBrandGoogleAnalytics />} text="Analytics" />
-        <SidebarOptions logo={<LuDatabaseZap />} text="Data" />
+        <SidebarOptions
+          onClick={handleClick}
+          logo={<LuDatabaseZap />}
+          text="Data"
+        />
       </div>
       <div>
         <PersonalInfo />

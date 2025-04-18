@@ -39,8 +39,8 @@ function ChartSection() {
   chartData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   return (
-    <div className="w-full h-80 bg-white p-4 rounded-2xl shadow-md">
-      <h2 className="text-lg font-semibold mb-4">Income vs Expense</h2>
+    <div className="w-full h-86 bg-white p-4 rounded-2xl shadow border border-[#E0E0E0]">
+      <h2 className="text-lg font-bold mb-4">Income vs Expense</h2>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={chartData}>
           <CartesianGrid strokeDasharray="3 3" />
