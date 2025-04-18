@@ -15,7 +15,13 @@ export default function ExpenseModal({ isOpen, onClose, onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(formData);
-    setFormData({ amount: "", spendType: "", date: "", remarks: "" });
+    setFormData({
+      amountType: "",
+      amount: "",
+      spendType: "",
+      date: "",
+      remarks: "",
+    });
     onClose(); // Close after submit
   };
 
@@ -26,6 +32,17 @@ export default function ExpenseModal({ isOpen, onClose, onSubmit }) {
       <div className="bg-white rounded-2xl shadow-lg p-6 w-96">
         <h2 className="text-xl font-semibold mb-4">Add New Expense</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
+          <select
+            name="amountType"
+            value={formData.amountType}
+            onChange={handleChange}
+            className="w-full border rounded p-2 cursor-pointer"
+            required
+          >
+            <option value="">Select Amount Type</option>
+            <option value="Income">Income</option>
+            <option value="Expense">Expense</option>
+          </select>
           <input
             type="number"
             name="amount"
@@ -42,7 +59,8 @@ export default function ExpenseModal({ isOpen, onClose, onSubmit }) {
             className="w-full border rounded p-2 cursor-pointer"
             required
           >
-            <option value="">Select Spend Type</option>
+            <option value="">Select Type</option>
+            <option value="Salary">Salary</option>
             <option value="Food">Food</option>
             <option value="Travel">Travel</option>
             <option value="Shopping">Shopping</option>

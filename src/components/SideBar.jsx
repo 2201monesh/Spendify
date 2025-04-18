@@ -9,14 +9,13 @@ import ExpenseModal from "./ExpenseModal";
 import { useAppContext } from "../context/AppContext";
 
 function SideBar() {
-  const { isModalOpen, setIsModalOpen, expenses, setExpenses } =
-    useAppContext();
+  const { isModalOpen, setIsModalOpen, setUserAmountList } = useAppContext();
 
   const handleFormSubmit = (data) => {
-    console.log("Submitted Expense:", data);
-    setExpenses((prev) => {
+    console.log("Submitted User Amount List:", data);
+    setUserAmountList((prev) => {
       const updated = [...prev, { ...data, id: Date.now() }];
-      console.log("Updated expenses:", updated);
+      console.log("Updated User Amount List:", updated);
       return updated;
     });
   };
@@ -30,7 +29,7 @@ function SideBar() {
           className="w-[100%] px-2 py-1 cursor-pointer rounded flex mb-2 items-center bg-black text-white text-sm"
         >
           <IoAddCircleOutline size={15} className="mr-2" />
-          Add New Expense
+          Add New
         </button>
         <ExpenseModal
           isOpen={isModalOpen}
