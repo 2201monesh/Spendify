@@ -21,7 +21,7 @@ function SideBar() {
   };
 
   return (
-    <div className="w-[15%] h-screen p-4 bg-[#FAFAFA] flex flex-col justify-between shadow-md">
+    <div className="w-[15%] h-screen p-4 bg-[#FAFAFA] flex flex-col justify-between border-r border-[#E0E0E0]">
       <div>
         <p className="text-xl mb-4 ml-2">Spendify</p>
         <button

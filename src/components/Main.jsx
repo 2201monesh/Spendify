@@ -7,7 +7,7 @@ function Main() {
   const { totalExpenses, totalIncome, currentBalance } = useAppContext();
   return (
     <div className="w-[100%] h-screen">
-      <div className="w-[100%] h-[5%] shadow"></div>
+      <div className="w-[100%] h-[5%] border-b border-[#E0E0E0]"></div>
       <div className="p-4 flex">
         <StatsCard text="Current Balance" amount={currentBalance} />
         <StatsCard text="Income" amount={totalIncome} />
