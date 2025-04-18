@@ -6,13 +6,19 @@ import { LuDatabaseZap } from "react-icons/lu";
 import PersonalInfo from "./PersonalInfo";
 import { IoAddCircleOutline } from "react-icons/io5";
 import ExpenseModal from "./ExpenseModal";
+import { useAppContext } from "../context/AppContext";
 
 function SideBar() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isModalOpen, setIsModalOpen, expenses, setExpenses } =
+    useAppContext();
 
   const handleFormSubmit = (data) => {
     console.log("Submitted Expense:", data);
-    // You can store it or send it to a backend from here
+    setExpenses((prev) => {
+      const updated = [...prev, { ...data, id: Date.now() }];
+      console.log("Updated expenses:", updated);
+      return updated;
+    });
   };
 
   return (
