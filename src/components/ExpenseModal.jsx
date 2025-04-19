@@ -18,7 +18,7 @@ export default function ExpenseModal({ isOpen, onClose, onSubmit }) {
     setFormData({
       amountType: "",
       amount: "",
-      spendType: "",
+      category: "",
       date: "",
       remarks: "",
     });
@@ -39,7 +39,7 @@ export default function ExpenseModal({ isOpen, onClose, onSubmit }) {
             name="amountType"
             value={formData.amountType}
             onChange={handleChange}
-            className="w-full border rounded px-2 py-1 cursor-pointer"
+            className="w-full border border-gray-400 outline-none rounded px-2 py-1 cursor-pointer text-[#71717A]"
             required
           >
             <option value="">Select Amount Type</option>
@@ -55,26 +55,21 @@ export default function ExpenseModal({ isOpen, onClose, onSubmit }) {
             placeholder="Amount"
             value={formData.amount}
             onChange={handleChange}
-            className="w-full border rounded px-2 py-1"
+            className="w-full border border-gray-400 outline-none rounded px-2 py-1 text-[#71717A]"
             required
           />
-          <label htmlFor="spendType" className="text-xs">
-            Spend Type
+          <label htmlFor="category" className="text-xs">
+            Category
           </label>
-          <select
-            name="spendType"
-            value={formData.spendType}
+          <input
+            type="text"
+            name="category"
+            placeholder="Category"
+            value={formData.category}
             onChange={handleChange}
-            className="w-full border rounded px-2 py-1 cursor-pointer"
+            className="w-full border border-gray-400 outline-none rounded px-2 py-1 text-[#71717A]"
             required
-          >
-            <option value="">Select Type</option>
-            <option value="Salary">Salary</option>
-            <option value="Food">Food</option>
-            <option value="Travel">Travel</option>
-            <option value="Shopping">Shopping</option>
-            <option value="Other">Other</option>
-          </select>
+          />
           <label htmlFor="date" className="text-xs">
             Date
           </label>
@@ -83,7 +78,7 @@ export default function ExpenseModal({ isOpen, onClose, onSubmit }) {
             name="date"
             value={formData.date}
             onChange={handleChange}
-            className="w-full border rounded px-2 py-1"
+            className="w-full border border-gray-400 outline-none rounded px-2 py-1 text-[#71717A]"
             required
           />
           <label htmlFor="remarks" className="text-xs">
@@ -95,7 +90,7 @@ export default function ExpenseModal({ isOpen, onClose, onSubmit }) {
             placeholder="Remarks"
             value={formData.remarks}
             onChange={handleChange}
-            className="w-full border rounded px-2 py-1"
+            className="w-full border border-gray-400 outline-none rounded px-2 py-1 text-[#71717A]"
           />
           <div className="flex justify-end gap-2">
             <button

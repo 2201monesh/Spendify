@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 function SidebarOptions({ logo, text, onClick }) {
   return (
