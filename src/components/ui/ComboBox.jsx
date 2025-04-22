@@ -35,7 +35,7 @@ function ComboBox() {
   };
 
   return (
-    <div className="p-4" ref={dropdownRef}>
+    <div className="relative p-4" ref={dropdownRef}>
       <button
         className="btn position-sticky w-[150px] h-[40px] border border-[#27272A] rounded-[6px] cursor-pointer"
         onClick={toggleShowFilter}
@@ -44,7 +44,7 @@ function ComboBox() {
         {buttonText}
       </button>
       {showFilter && (
-        <div className="absolute top-full left-0 mt-1">
+        <div className="absolute top-14 left-3 z-50 mt-1 bg-white shadow-lg">
           <FilterDropdown handleButtonText={handleButtonText} />
         </div>
       )}
