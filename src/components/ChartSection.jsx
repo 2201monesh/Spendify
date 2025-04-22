@@ -13,36 +13,48 @@ import {
 import { useAppContext } from "../context/AppContext";
 
 function ChartSection() {
-  const { userAmountList } = useAppContext();
+  const { filteredUserAmountList } = useAppContext();
 
-  // 🔄 Prepare data: convert to date-wise format
-  const chartData = [];
+  // 🛠️ Transform data for chart
+  const dataMap = {};
 
-  userAmountList.forEach((item) => {
-    const date = new Date(item.date).toLocaleDateString("en-GB"); // dd/mm/yyyy
-    const existing = chartData.find((d) => d.date === date);
+  filteredUserAmountList?.forEach((item) => {
+    if (!item.date) return;
+
+    // Use ISO date string for sorting
+    const isoDate = new Date(item.date).toISOString().split("T")[0]; // yyyy-mm-dd
     const amount = Number(item.amount);
 
-    if (existing) {
-      if (item.amountType === "Income") existing.income += amount;
-      else existing.expense += amount;
-    } else {
-      chartData.push({
-        date,
-        income: item.amountType === "Income" ? amount : 0,
-        expense: item.amountType === "Expense" ? amount : 0,
-      });
+    if (!dataMap[isoDate]) {
+      dataMap[isoDate] = { date: isoDate, income: 0, expense: 0 };
+    }
+
+    if (item.amountType === "Income") {
+      dataMap[isoDate].income += amount;
+    } else if (item.amountType === "Expense") {
+      dataMap[isoDate].expense += amount;
     }
   });
 
-  // Optional: sort by date if not already
-  chartData.sort((a, b) => new Date(a.date) - new Date(b.date));
+  // 🧾 Convert map to array and sort by date
+  const chartData = Object.values(dataMap).sort(
+    (a, b) => new Date(a.date) - new Date(b.date)
+  );
+
+  // ✅ Optional: format dates to dd/mm/yyyy for display
+  const formattedChartData = chartData.map((d) => {
+    const [yyyy, mm, dd] = d.date.split("-");
+    return {
+      ...d,
+      date: `${dd}/${mm}/${yyyy}`,
+    };
+  });
 
   return (
-    <div className="w-full h-86 bg-white p-4 rounded-2xl shadow border border-[#E0E0E0]">
+    <div className="w-full h-80 bg-white p-4 rounded-2xl shadow border border-[#E0E0E0]">
       <h2 className="text-lg font-bold mb-4">Income vs Expense</h2>
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={chartData}>
+        <LineChart data={formattedChartData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
           <YAxis />

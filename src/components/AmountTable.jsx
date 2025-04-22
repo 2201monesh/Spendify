@@ -3,7 +3,7 @@ import React from "react";
 import { useAppContext } from "../context/AppContext";
 
 function AmountTable() {
-  const { userAmountList } = useAppContext();
+  const { filteredUserAmountList } = useAppContext();
 
   return (
     <div className="overflow-x-auto bg-white shadow border border-[#E0E0E0] rounded-2xl p-4">
@@ -18,14 +18,14 @@ function AmountTable() {
           </tr>
         </thead>
         <tbody>
-          {userAmountList.length === 0 ? (
+          {!filteredUserAmountList || filteredUserAmountList.length === 0 ? (
             <tr>
               <td colSpan="4" className="py-4 text-center text-gray-500">
                 No records found
               </td>
             </tr>
           ) : (
-            userAmountList.map((item, index) => (
+            filteredUserAmountList.map((item, index) => (
               <tr
                 key={index}
                 className="border-t hover:bg-gray-50 transition-all duration-150"
@@ -43,7 +43,7 @@ function AmountTable() {
                 <td className="py-2 px-4">
                   {new Date(item.date).toLocaleDateString("en-GB")}
                 </td>
-                <td className="py-2 px-4">{item.spendType}</td>
+                <td className="py-2 px-4">{item.category}</td>
               </tr>
             ))
           )}
