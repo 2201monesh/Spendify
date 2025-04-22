@@ -37,7 +37,7 @@ function ComboBox() {
   return (
     <div className="relative p-4" ref={dropdownRef}>
       <button
-        className="btn position-sticky w-[150px] h-[40px] border border-[#27272A] rounded-[6px] cursor-pointer"
+        className="btn position-sticky w-[150px] h-[40px] border border-[#E0E0E0] shadow rounded-[6px] cursor-pointer"
         onClick={toggleShowFilter}
         value={selectedTimeRange}
       >
@@ -45,7 +45,12 @@ function ComboBox() {
       </button>
       {showFilter && (
         <div className="absolute top-14 left-3 z-50 mt-1 bg-white shadow-lg">
-          <FilterDropdown handleButtonText={handleButtonText} />
+          <FilterDropdown
+            handleButtonText={(value) => {
+              handleButtonText(value);
+              setShowFilter(false);
+            }}
+          />
         </div>
       )}
     </div>

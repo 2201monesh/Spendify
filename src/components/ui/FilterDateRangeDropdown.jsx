@@ -10,8 +10,8 @@ function FilterDropdown({ handleButtonText }) {
   );
 
   return (
-    <div className="w-[180px] max-h-[200px] overflow-y-auto border mt-1 rounded-[6px] border-[#27272A] flex flex-col hide-scrollbar">
-      <div className="w-[100%] h-[40px] border border-[#27272A] rounded-t-[6px] flex items-center px-3">
+    <div className="w-[180px] max-h-[200px] overflow-y-auto border mt-1 rounded-[6px] border-[#E0E0E0] shadow flex flex-col hide-scrollbar">
+      <div className="w-[100%] h-[40px] border border-[#E0E0E0] rounded-t-[6px] flex items-center px-3">
         <IoIosSearch className="mr-2" size={20} />
         <input
           className="w-[80%] outline-none"
@@ -26,7 +26,7 @@ function FilterDropdown({ handleButtonText }) {
           <p
             key={status}
             onClick={() => handleButtonText(status)}
-            className={`w-[100%] h-[40px] flex items-center px-3 hover:cursor-pointer 
+            className={`w-[100%] h-[40px] flex items-center px-3 hover:bg-[#F4F4F5] hover:cursor-pointer 
               ${
                 index === filteredStatuses.length - 1 ? "rounded-b-[6px]" : ""
               }`}
