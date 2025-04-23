@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
+import { motion } from "framer-motion";
 
 function FilterDropdown({ handleButtonText }) {
   const statuses = ["All Time", "7 Days", "1 Month", "3 Months"];
@@ -10,7 +11,13 @@ function FilterDropdown({ handleButtonText }) {
   );
 
   return (
-    <div className="w-[180px] max-h-[200px] overflow-y-auto border mt-1 rounded-[6px] border-[#E0E0E0] shadow flex flex-col hide-scrollbar">
+    <motion.div
+      className="w-[180px] max-h-[200px] overflow-y-auto border mt-1 rounded-[6px] border-[#E0E0E0] shadow flex flex-col hide-scrollbar"
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+    >
       <div className="w-[100%] h-[40px] border border-[#E0E0E0] rounded-t-[6px] flex items-center px-3">
         <IoIosSearch className="mr-2" size={20} />
         <input
@@ -39,7 +46,7 @@ function FilterDropdown({ handleButtonText }) {
           No results found
         </p>
       )}
-    </div>
+    </motion.div>
   );
 }
 

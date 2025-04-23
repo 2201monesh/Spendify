@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import FilterDropdown from "./FilterDateRangeDropdown";
 import { useAppContext } from "../../context/AppContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 function ComboBox() {
   const [showFilter, setShowFilter] = useState(false);
@@ -43,16 +44,18 @@ function ComboBox() {
       >
         {buttonText}
       </button>
-      {showFilter && (
-        <div className="absolute top-14 left-3 z-50 mt-1 bg-white shadow-lg">
-          <FilterDropdown
-            handleButtonText={(value) => {
-              handleButtonText(value);
-              setShowFilter(false);
-            }}
-          />
-        </div>
-      )}
+      <AnimatePresence>
+        {showFilter && (
+          <div className="absolute top-14 left-3 z-50 mt-1 bg-white shadow-lg">
+            <FilterDropdown
+              handleButtonText={(value) => {
+                handleButtonText(value);
+                setShowFilter(false);
+              }}
+            />
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
