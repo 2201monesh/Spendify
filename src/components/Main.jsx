@@ -5,6 +5,9 @@ import { useAppContext } from "../context/AppContext";
 import AmountTable from "./AmountTable";
 import ComboBox from "./ui/ComboBox";
 import { IoAddCircleOutline } from "react-icons/io5";
+import { BiExport } from "react-icons/bi";
+import { BiImport } from "react-icons/bi";
+import { TbReportMoney } from "react-icons/tb";
 
 const timeOptions = ["All Time", "7 Days", "1 Month", "3 Months"];
 
@@ -33,9 +36,13 @@ function Main() {
       </div>
 
       <div className="p-4 flex">
-        <StatsCard text="Current Balance" amount={currentBalance} />
-        <StatsCard text="Income" amount={totalIncome} />
-        <StatsCard text="Expenses" amount={totalExpenses} />
+        <StatsCard
+          text="Current Balance"
+          amount={currentBalance}
+          logo={<TbReportMoney />}
+        />
+        <StatsCard text="Income" amount={totalIncome} logo={<BiImport />} />
+        <StatsCard text="Expenses" amount={totalExpenses} logo={<BiExport />} />
       </div>
       <div className="p-4">
         <ChartSection />
