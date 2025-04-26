@@ -38,7 +38,7 @@ function ComboBox() {
   return (
     <div className="relative p-4" ref={dropdownRef}>
       <button
-        className="btn position-sticky w-[150px] h-[40px] border border-[#E0E0E0] shadow rounded-[6px] cursor-pointer"
+        className="btn position-sticky w-[150px] h-[40px] border border-[#E0E0E0] shadow rounded-[6px] cursor-pointer bg-white"
         onClick={toggleShowFilter}
         value={selectedTimeRange}
       >

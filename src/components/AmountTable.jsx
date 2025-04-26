@@ -125,8 +125,8 @@ function AmountTable() {
                 onClick={() => handlePageChange(page)}
                 className={`px-3 py-1 rounded-md text-sm border cursor-pointer ${
                   currentPage === page
-                    ? "bg-blue-500 text-white"
-                    : "bg-white text-blue-500"
+                    ? "bg-black text-white"
+                    : "bg-white text-black"
                 }`}
               >
                 {page}
