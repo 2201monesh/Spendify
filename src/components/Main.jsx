@@ -41,8 +41,16 @@ function Main() {
           amount={currentBalance}
           logo={<TbReportMoney />}
         />
-        <StatsCard text="Income" amount={totalIncome} logo={<BiImport />} />
-        <StatsCard text="Expenses" amount={totalExpenses} logo={<BiExport />} />
+        <StatsCard
+          text="Income"
+          amount={totalIncome}
+          logo={<BiImport className="text-green-500" />}
+        />
+        <StatsCard
+          text="Expenses"
+          amount={totalExpenses}
+          logo={<BiExport className="text-red-500" />}
+        />
       </div>
       <div className="p-4">
         <ChartSection />
