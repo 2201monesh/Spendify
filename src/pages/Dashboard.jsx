@@ -3,6 +3,7 @@ import { useUser } from "@clerk/clerk-react";
 import Pots from "../components/Pots";
 import SideBar from "../components/SideBar";
 import Main from "../components/Main";
+import { Outlet } from "react-router-dom";
 
 function Dashboard() {
   const { isSignedIn, user } = useUser();
@@ -26,7 +27,10 @@ function Dashboard() {
   return (
     <div className="w-screen h-screen flex">
       <SideBar />
-      <Main />
+      {/* <Main /> */}
+      <div className="flex-1 h-screen overflow-auto">
+        <Outlet />
+      </div>
     </div>
   );
 }
