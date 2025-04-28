@@ -19,10 +19,13 @@ function Main() {
     isModalOpen,
     setIsModalOpen,
     setUserAmountList,
+    percentageIncomeChange,
+    percentageExpenseChange,
+    percentageBalanceChange,
   } = useAppContext();
 
   return (
-    <div className="w-[100%] h-screen overflow-auto bg-[#ECEFEC]">
+    <div className="w-[100%] h-screen overflow-auto bg-[#FAFAFA]">
       <div className="w-[100%] h-[5%] border-b border-[#E0E0E0] bg-white"></div>
       <div className="flex p-4 items-center">
         <button
@@ -39,16 +42,19 @@ function Main() {
         <StatsCard
           text="Current Balance"
           amount={currentBalance}
+          percentageChange={percentageBalanceChange}
           logo={<TbReportMoney />}
         />
         <StatsCard
           text="Income"
           amount={totalIncome}
+          percentageChange={percentageIncomeChange}
           logo={<BiImport className="text-green-500" />}
         />
         <StatsCard
           text="Expenses"
           amount={totalExpenses}
+          percentageChange={percentageExpenseChange}
           logo={<BiExport className="text-red-500" />}
         />
       </div>

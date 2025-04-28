@@ -469,6 +469,74 @@ export const AppProvider = ({ children }) => {
     return totalIncome - totalExpenses;
   }, [totalIncome, totalExpenses]);
 
+  const calculatePreviousPeriodData = () => {
+    const now = new Date();
+    let fromDate, previousFromDate, previousToDate;
+
+    switch (selectedTimeRange) {
+      case "7 Days":
+        previousToDate = new Date(now.setDate(now.getDate() - 7));
+        previousFromDate = new Date(now.setDate(now.getDate() - 7));
+        fromDate = new Date();
+        fromDate.setDate(fromDate.getDate() - 7);
+        break;
+      case "1 Month":
+        previousToDate = new Date(now.setMonth(now.getMonth() - 1));
+        previousFromDate = new Date(now.setMonth(now.getMonth() - 1));
+        fromDate = new Date();
+        fromDate.setMonth(fromDate.getMonth() - 1);
+        break;
+      case "3 Months":
+        previousToDate = new Date(now.setMonth(now.getMonth() - 3));
+        previousFromDate = new Date(now.setMonth(now.getMonth() - 3));
+        fromDate = new Date();
+        fromDate.setMonth(fromDate.getMonth() - 3);
+        break;
+      default:
+        return { prevIncome: 0, prevExpense: 0, prevBalance: 0 };
+    }
+
+    const previousData = userAmountList.filter((item) => {
+      const itemDate = new Date(item.date);
+      return itemDate >= previousFromDate && itemDate <= previousToDate;
+    });
+
+    const prevIncome = previousData
+      .filter((item) => item.amountType === "Income")
+      .reduce((acc, curr) => acc + Number(curr.amount), 0);
+
+    const prevExpense = previousData
+      .filter((item) => item.amountType === "Expense")
+      .reduce((acc, curr) => acc + Number(curr.amount), 0);
+
+    const prevBalance = prevIncome - prevExpense;
+
+    return { prevIncome, prevExpense, prevBalance };
+  };
+
+  const { prevIncome, prevExpense, prevBalance } = useMemo(
+    () => calculatePreviousPeriodData(),
+    [selectedTimeRange, userAmountList]
+  );
+
+  const percentageChange = (current, previous) => {
+    if (previous === 0) return current === 0 ? 0 : 100; // Prevent divide by 0
+    return ((current - previous) / previous) * 100;
+  };
+
+  const percentageIncomeChange = useMemo(
+    () => percentageChange(totalIncome, prevIncome),
+    [totalIncome, prevIncome]
+  );
+  const percentageExpenseChange = useMemo(
+    () => percentageChange(totalExpenses, prevExpense),
+    [totalExpenses, prevExpense]
+  );
+  const percentageBalanceChange = useMemo(
+    () => percentageChange(currentBalance, prevBalance),
+    [currentBalance, prevBalance]
+  );
+
   return (
     <AppContext.Provider
       value={{
@@ -482,6 +550,9 @@ export const AppProvider = ({ children }) => {
         selectedTimeRange,
         setSelectedTimeRange,
         filteredUserAmountList,
+        percentageIncomeChange,
+        percentageExpenseChange,
+        percentageBalanceChange,
       }}
     >
       {children}
