@@ -23,10 +23,9 @@ function AmountTable() {
 
   const handleItemsPerPageChange = (e) => {
     setItemsPerPage(Number(e.target.value));
-    setCurrentPage(1); // reset to first page
+    setCurrentPage(1);
   };
 
-  // Calculate visible page numbers (show 3 at a time)
   const visiblePages = [];
   const maxVisible = 3;
   let startPage = Math.max(currentPage - 1, 1);
@@ -41,18 +40,21 @@ function AmountTable() {
   }
 
   return (
-    <div className="overflow-x-auto bg-white shadow border border-[#E0E0E0] rounded-2xl p-4">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-semibold">Transaction History</h2>
+    <div className="overflow-x-auto bg-white p-6 rounded-2xl shadow border border-[#E0E0E0]">
+      {/* Table Header */}
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-xl font-semibold text-gray-800">
+          Transaction History
+        </h2>
         <div className="flex items-center space-x-2">
-          <label htmlFor="itemsPerPage" className="text-sm">
+          <label htmlFor="itemsPerPage" className="text-sm text-gray-600">
             Show
           </label>
           <select
             id="itemsPerPage"
             value={itemsPerPage}
             onChange={handleItemsPerPageChange}
-            className="border rounded px-2 py-1 text-sm cursor-pointer"
+            className="border border-gray-300 rounded-md px-3 py-1 text-sm bg-white cursor-pointer focus:outline-none focus:ring-1 focus:ring-black"
           >
             <option value={10}>10</option>
             <option value={20}>20</option>
@@ -61,19 +63,20 @@ function AmountTable() {
         </div>
       </div>
 
+      {/* Table */}
       <table className="w-full text-sm text-left border-collapse">
-        <thead className="bg-[#f5f5f5] text-gray-700">
+        <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
           <tr>
-            <th className="py-2 px-4">Type</th>
-            <th className="py-2 px-4">Amount (₹)</th>
-            <th className="py-2 px-4">Date</th>
-            <th className="py-2 px-4">Category</th>
+            <th className="py-3 px-4">Type</th>
+            <th className="py-3 px-4">Amount (₹)</th>
+            <th className="py-3 px-4">Date</th>
+            <th className="py-3 px-4">Category</th>
           </tr>
         </thead>
         <tbody>
           {!paginatedData || paginatedData.length === 0 ? (
             <tr>
-              <td colSpan="4" className="py-4 text-center text-gray-500">
+              <td colSpan="4" className="py-6 text-center text-gray-500">
                 No records found
               </td>
             </tr>
@@ -81,10 +84,10 @@ function AmountTable() {
             paginatedData.map((item, index) => (
               <tr
                 key={index}
-                className="border-t hover:bg-gray-50 transition-all duration-150"
+                className="border-t border-gray-200 hover:bg-gray-50 transition-all duration-150"
               >
                 <td
-                  className={`py-2 px-4 font-medium ${
+                  className={`py-3 px-4 font-semibold ${
                     item.amountType === "Income"
                       ? "text-green-600"
                       : "text-red-500"
@@ -92,29 +95,32 @@ function AmountTable() {
                 >
                   {item.amountType}
                 </td>
-                <td className="py-2 px-4">
+                <td className="py-3 px-4 text-gray-700">
                   ₹{Number(item.amount).toLocaleString("en-IN")}
                 </td>
-                <td className="py-2 px-4">
+                <td className="py-3 px-4 text-gray-700">
                   {new Date(item.date).toLocaleDateString("en-GB")}
                 </td>
-                <td className="py-2 px-4">{item.category}</td>
+                <td className="py-3 px-4 text-gray-700 capitalize">
+                  {item.category}
+                </td>
               </tr>
             ))
           )}
         </tbody>
       </table>
 
+      {/* Pagination */}
       {totalPages > 1 && (
-        <div className="flex justify-between items-center mt-4">
+        <div className="flex justify-between items-center mt-6">
           <div className="text-sm text-gray-600">
-            Showing {(currentPage - 1) * itemsPerPage + 1}-
+            Showing {(currentPage - 1) * itemsPerPage + 1} -{" "}
             {Math.min(currentPage * itemsPerPage, totalItems)} of {totalItems}
           </div>
           <div className="flex space-x-2">
             <button
               onClick={() => handlePageChange(currentPage - 1)}
-              className="px-3 py-1 rounded-md text-sm border bg-white text-gray-700 disabled:opacity-50 cursor-pointer"
+              className="px-3 py-1 rounded-md text-sm border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={currentPage === 1}
             >
               ←
@@ -123,18 +129,18 @@ function AmountTable() {
               <button
                 key={page}
                 onClick={() => handlePageChange(page)}
-                className={`px-3 py-1 rounded-md text-sm border cursor-pointer ${
+                className={`px-3 py-1 rounded-md text-sm border ${
                   currentPage === page
                     ? "bg-black text-white"
-                    : "bg-white text-black"
-                }`}
+                    : "bg-white text-gray-700 hover:bg-gray-100"
+                } transition`}
               >
                 {page}
               </button>
             ))}
             <button
               onClick={() => handlePageChange(currentPage + 1)}
-              className="px-3 py-1 rounded-md text-sm border bg-white text-gray-700 disabled:opacity-50 cursor-pointer"
+              className="px-3 py-1 rounded-md text-sm border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={currentPage === totalPages}
             >
               →
