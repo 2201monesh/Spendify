@@ -26,7 +26,7 @@ function Main() {
 
   return (
     <div className="w-[100%] h-screen overflow-auto bg-[#FAFAFA]">
-      <div className="w-[100%] h-[5%] border-b border-[#E0E0E0] bg-white"></div>
+      <div className="w-[100%] h-[5%] border-b border-[#E0E0E0]"></div>
       <div className="flex p-4 items-center">
         <button
           onClick={() => setIsModalOpen(true)}
