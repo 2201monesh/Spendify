@@ -124,9 +124,14 @@
 // export default Analytics;
 
 import React from "react";
+import PieChart from "../components/ui/PieChartComponent";
 
 function Analytics() {
-  return <div className="p-4">Analytics page</div>;
+  return (
+    <div className="p-4">
+      <PieChart />
+    </div>
+  );
 }
 
 export default Analytics;
