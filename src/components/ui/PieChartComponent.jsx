@@ -9,7 +9,7 @@ import {
 } from "recharts";
 import { useAppContext } from "../../context/AppContext";
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#A28CF1"];
 const data = [
   { name: "Group A", value: 400 },
   { name: "Group B", value: 300 },
@@ -80,24 +80,6 @@ function PieChartComponent() {
             ]}
           />
         </PieChart>
-        {/* <div className="flex flex-col items-center">
-          <div className="flex items-center mb-1">
-            <p className="w-3.5 h-3.5 bg-[#0088FE] mr-2"></p>
-            <p>Group A</p>
-          </div>
-          <div className="flex items-center mb-1">
-            <p className="w-3.5 h-3.5 bg-[#00C49F] mr-2"></p>
-            <p>Group B</p>
-          </div>
-          <div className="flex items-center mb-1">
-            <p className="w-3.5 h-3.5 bg-[#FFBB28] mr-2"></p>
-            <p>Group C</p>
-          </div>
-          <div className="flex items-center mb-1">
-            <p className="w-3.5 h-3.5 bg-[#FF8042] mr-2"></p>
-            <p>Group D</p>
-          </div>
-        </div> */}
         {/* Dynamic Legend */}
         <div className="flex flex-col items-start text-sm">
           {chartData.map((entry, index) => (
