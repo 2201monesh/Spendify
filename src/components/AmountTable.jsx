@@ -120,7 +120,7 @@ function AmountTable() {
           <div className="flex space-x-2">
             <button
               onClick={() => handlePageChange(currentPage - 1)}
-              className="px-3 py-1 rounded-md text-sm border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-3 py-1 cursor-pointer rounded-md text-sm border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={currentPage === 1}
             >
               ←
@@ -129,7 +129,7 @@ function AmountTable() {
               <button
                 key={page}
                 onClick={() => handlePageChange(page)}
-                className={`px-3 py-1 rounded-md text-sm border ${
+                className={`px-3 py-1 rounded-md text-sm border cursor-pointer ${
                   currentPage === page
                     ? "bg-black text-white"
                     : "bg-white text-gray-700 hover:bg-gray-100"
@@ -140,7 +140,7 @@ function AmountTable() {
             ))}
             <button
               onClick={() => handlePageChange(currentPage + 1)}
-              className="px-3 py-1 rounded-md text-sm border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-3 py-1 cursor-pointer rounded-md text-sm border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={currentPage === totalPages}
             >
               →
