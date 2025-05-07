@@ -84,7 +84,7 @@ function PieChartComponent() {
             {chartData.map((entry, index) => (
               <div className="flex items-center mb-1" key={entry.name}>
                 <div
-                  className="w-3.5 h-3.5 rounded-sm mr-2"
+                  className="w-3.5 h-3.5 mr-2"
                   style={{ backgroundColor: COLORS[index % COLORS.length] }}
                 ></div>
                 <p>

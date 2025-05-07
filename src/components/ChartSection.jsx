@@ -51,7 +51,7 @@
 //   });
 
 //   return (
-//     <div className="w-full h-80 bg-white p-4 rounded-2xl shadow border border-[#E0E0E0]">
+//     <div className="w-full h-80 bg-white p-4 shadow border border-[#E0E0E0]">
 //       <h2 className="text-lg font-bold mb-4">Income vs Expense</h2>
 //       <ResponsiveContainer width="100%" height="100%">
 //         <LineChart data={formattedChartData}>
@@ -130,7 +130,7 @@ function ChartSection() {
   });
 
   return (
-    <div className="w-full h-80 bg-white p-6 rounded-2xl shadow border border-[#E0E0E0]">
+    <div className="w-full h-80 bg-white p-6 shadow border border-[#E0E0E0]">
       <h2 className="text-xl font-semibold text-gray-800 mb-6">
         Income vs Expense
       </h2>

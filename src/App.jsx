@@ -18,15 +18,6 @@ function App() {
 
   return (
     <>
-      {/* <Router>
-        <Routes>
-          <Route path="/" element={isSignedIn ? <Dashboard /> : <Home />} />
-          <Route
-            path="/dashboard"
-            element={isSignedIn ? <Dashboard /> : <Navigate to="/" />}
-          />
-        </Routes>
-      </Router> */}
       <Router>
         <Routes>
           <Route

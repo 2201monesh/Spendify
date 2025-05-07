@@ -64,7 +64,7 @@
 //         <select
 //           value={selectedCategory}
 //           onChange={(e) => setSelectedCategory(e.target.value)}
-//           className="border px-3 py-1 rounded-md text-sm bg-white"
+//           className="border px-3 py-1 text-sm bg-white"
 //         >
 //           {categories.map((cat, idx) => (
 //             <option key={idx} value={cat}>
@@ -77,7 +77,7 @@
 //       {/* Graph & Stats */}
 //       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 //         {/* Pie Chart */}
-//         <div className="bg-white p-4 rounded-2xl shadow border border-[#E0E0E0]">
+//         <div className="bg-white p-4 shadow border border-[#E0E0E0]">
 //           <h3 className="text-md font-semibold mb-2">Category-wise Spend</h3>
 //           <ResponsiveContainer width="100%" height={250}>
 //             <PieChart>
@@ -104,7 +104,7 @@
 //         </div>
 
 //         {/* Most Repeated Category */}
-//         <div className="bg-white p-4 rounded-2xl shadow border border-[#E0E0E0] flex flex-col justify-center">
+//         <div className="bg-white p-4 shadow border border-[#E0E0E0] flex flex-col justify-center">
 //           <h3 className="text-md font-semibold mb-2">Most Repeated Category</h3>
 //           <p className="text-2xl font-bold text-blue-600">
 //             {mostRepeatedCategory}
@@ -113,7 +113,7 @@
 //       </div>
 
 //       {/* Filtered Table */}
-//       <div className="bg-white p-4 rounded-2xl shadow border border-[#E0E0E0]">
+//       <div className="bg-white p-4 shadow border border-[#E0E0E0]">
 //         <h3 className="text-md font-semibold mb-2">Transactions</h3>
 //         <AmountTable customData={categoryData} />
 //       </div>

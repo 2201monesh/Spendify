@@ -30,7 +30,7 @@ function Main() {
       <div className="flex p-4 items-center">
         <button
           onClick={() => setIsModalOpen(true)}
-          className="px-2 py-2.5 w-[140px] h-[40px] cursor-pointer rounded flex items-center justify-center bg-black text-white text-sm"
+          className="px-2 py-2.5 w-[140px] h-[40px] cursor-pointer flex items-center justify-center bg-black text-white text-sm"
         >
           <IoAddCircleOutline size={15} className="mr-2" />
           Add New

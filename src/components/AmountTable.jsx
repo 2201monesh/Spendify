@@ -40,7 +40,7 @@ function AmountTable() {
   }
 
   return (
-    <div className="overflow-x-auto bg-white p-6 rounded-2xl shadow border border-[#E0E0E0]">
+    <div className="overflow-x-auto bg-white p-6 shadow border border-[#E0E0E0]">
       {/* Table Header */}
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold text-gray-800">
@@ -54,7 +54,7 @@ function AmountTable() {
             id="itemsPerPage"
             value={itemsPerPage}
             onChange={handleItemsPerPageChange}
-            className="border border-gray-300 rounded-md px-3 py-1 text-sm bg-white cursor-pointer focus:outline-none focus:ring-1 focus:ring-black"
+            className="border border-gray-300 px-3 py-1 text-sm bg-white cursor-pointer focus:outline-none focus:ring-1 focus:ring-black"
           >
             <option value={10}>10</option>
             <option value={20}>20</option>
@@ -120,7 +120,7 @@ function AmountTable() {
           <div className="flex space-x-2">
             <button
               onClick={() => handlePageChange(currentPage - 1)}
-              className="px-3 py-1 cursor-pointer rounded-md text-sm border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-3 py-1 cursor-pointer text-sm border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={currentPage === 1}
             >
               ←
@@ -129,7 +129,7 @@ function AmountTable() {
               <button
                 key={page}
                 onClick={() => handlePageChange(page)}
-                className={`px-3 py-1 rounded-md text-sm border cursor-pointer ${
+                className={`px-3 py-1 text-sm border cursor-pointer ${
                   currentPage === page
                     ? "bg-black text-white"
                     : "bg-white text-gray-700 hover:bg-gray-100"
@@ -140,7 +140,7 @@ function AmountTable() {
             ))}
             <button
               onClick={() => handlePageChange(currentPage + 1)}
-              className="px-3 py-1 cursor-pointer rounded-md text-sm border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-3 py-1 cursor-pointer text-sm border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={currentPage === totalPages}
             >
               →

@@ -174,7 +174,7 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
 
   return (
     <div className="fixed inset-0 bg-black/10 backdrop-blur-[2px] flex justify-center items-center z-50">
-      <div className="w-96 bg-white rounded px-4 py-2 relative">
+      <div className="w-96 bg-white px-4 py-2 relative">
         {/* Heading */}
         <div className="flex items-center">
           <p className="w-[95%] flex justify-center text-lg">New Transaction</p>
@@ -196,7 +196,7 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
         {/* Date Input */}
         <div className="mt-6 text-center relative">
           <div
-            className="border rounded-lg py-2 px-4 cursor-pointer text-gray-600 flex items-center justify-between"
+            className="border py-2 px-4 cursor-pointer text-gray-600 flex items-center justify-between"
             onClick={() => setShowCalendar(!showCalendar)}
           >
             <div className="flex flex-col items-start">
@@ -219,7 +219,7 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
               />
               <div className="text-center mt-2">
                 <button
-                  className="border border-gray-400 text-gray-500 px-3 py-1 rounded cursor-pointer w-full"
+                  className="border border-gray-400 text-gray-500 px-3 py-1 cursor-pointer w-full"
                   onClick={selectToday}
                 >
                   Select Today
@@ -229,11 +229,11 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
           )}
         </div>
         {/* Amount Type Toggle */}
-        <div className="mt-6 flex justify-between bg-gray-100 rounded-lg p-1">
+        <div className="mt-6 flex justify-between bg-gray-100 p-1">
           <div
             className={`w-1/2 text-center py-2 cursor-pointer font-medium transition-all flex items-center justify-center ${
               amountType === "Income"
-                ? "bg-white text-black rounded-lg shadow-sm mx-1"
+                ? "bg-white text-black shadow-sm mx-1"
                 : "text-gray-500"
             }`}
             onClick={() => handleTypeSelect("Income")}
@@ -246,7 +246,7 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
           <div
             className={`w-1/2 text-center py-2 cursor-pointer font-medium transition-all flex items-center justify-center ${
               amountType === "Expense"
-                ? "bg-white text-black rounded-lg shadow-sm mx-1"
+                ? "bg-white text-black shadow-sm mx-1"
                 : "text-gray-500"
             }`}
             onClick={() => handleTypeSelect("Expense")}
@@ -263,7 +263,7 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
             type="text"
             value={description}
             onChange={handleDescriptionChange}
-            className="w-full bg-gray-100 rounded-lg py-2 pr-10 pl-4 text-gray-700 border-none focus:outline-none"
+            className="w-full bg-gray-100 py-2 pr-10 pl-4 text-gray-700 border-none focus:outline-none"
             placeholder="Enter description..."
           />
           <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
@@ -273,7 +273,7 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
         {/* Category Input */}
         <div className="mt-6 relative">
           <div
-            className="w-full bg-gray-100 rounded-lg py-2 px-4 text-gray-700 flex justify-between items-center cursor-pointer"
+            className="w-full bg-gray-100 py-2 px-4 text-gray-700 flex justify-between items-center cursor-pointer"
             onClick={() => setShowCategoryDropdown(!showCategoryDropdown)}
           >
             <div className="flex items-center gap-2">
@@ -292,7 +292,7 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="absolute top-[-180px] left-20 ml-4 w-80 bg-white rounded-lg shadow-lg p-4 z-20"
+                className="absolute top-[-180px] left-20 ml-4 w-80 bg-white shadow-lg p-4 z-20"
               >
                 {/* Search Input */}
                 <input
@@ -301,7 +301,7 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
                   onChange={handleSearchChange}
                   onKeyDown={handleCustomCategory}
                   placeholder="Search or add category..."
-                  className="w-full mb-4 px-3 py-2 bg-gray-100 rounded focus:outline-none text-sm"
+                  className="w-full mb-4 px-3 py-2 bg-gray-100 focus:outline-none text-sm"
                 />
 
                 {filteredCategories.map(([section, items]) =>
@@ -315,7 +315,7 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
                           <div
                             key={item}
                             onClick={() => handleCategorySelect(item)}
-                            className="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700 cursor-pointer hover:bg-gray-200 flex items-center gap-1"
+                            className="bg-gray-100 px-3 py-1 text-sm text-gray-700 cursor-pointer hover:bg-gray-200 flex items-center gap-1"
                           >
                             <span>{categoryIcons[item]}</span> {/* Icon here */}
                             {item}
@@ -331,7 +331,7 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
         </div>
         <div className="mt-6 mb-2">
           <div
-            className="w-full bg-black text-white rounded-lg p-2 flex items-center justify-center cursor-pointer"
+            className="w-full bg-black text-white p-2 flex items-center justify-center cursor-pointer"
             onClick={handleAddTransaction}
           >
             Add Transaction
@@ -339,7 +339,7 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
         </div>
         {/* Snackbar Message */}
         {showSnackbar && (
-          <div className="flex items-center fixed bottom-18 left-1/2 transform -translate-x-1/2 w-[250px] h-[40px] bg-green-50 text-green-500 p-4 rounded-lg shadow-lg text-xs border-2 border-green-500">
+          <div className="flex items-center fixed bottom-18 left-1/2 transform -translate-x-1/2 w-[250px] h-[40px] bg-green-50 text-green-500 p-4 shadow-lg text-xs border-2 border-green-500">
             <IoMdCheckmark className="text-green-500 mr-2" size={20} />
             <p className="text-center">Transaction added successfully</p>
           </div>

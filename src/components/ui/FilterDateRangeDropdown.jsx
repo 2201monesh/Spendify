@@ -12,13 +12,13 @@ function FilterDropdown({ handleButtonText }) {
 
   return (
     <motion.div
-      className="w-[180px] max-h-[200px] overflow-y-auto border mt-1 rounded-[6px] border-[#E0E0E0] shadow flex flex-col hide-scrollbar"
+      className="w-[180px] max-h-[200px] overflow-y-auto border mt-1 border-[#E0E0E0] shadow flex flex-col hide-scrollbar"
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
     >
-      <div className="w-[100%] h-[40px] border border-[#E0E0E0] rounded-t-[6px] flex items-center px-3">
+      <div className="w-[100%] h-[40px] border border-[#E0E0E0] flex items-center px-3">
         <IoIosSearch className="mr-2" size={20} />
         <input
           className="w-[80%] outline-none"
@@ -34,9 +34,7 @@ function FilterDropdown({ handleButtonText }) {
             key={status}
             onClick={() => handleButtonText(status)}
             className={`w-[100%] h-[40px] flex items-center px-3 hover:bg-[#F4F4F5] hover:cursor-pointer 
-              ${
-                index === filteredStatuses.length - 1 ? "rounded-b-[6px]" : ""
-              }`}
+              ${index === filteredStatuses.length - 1 ? "" : ""}`}
           >
             {status}
           </p>

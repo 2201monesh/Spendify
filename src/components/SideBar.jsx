@@ -30,9 +30,7 @@ function SideBar() {
             to="/dashboard"
             end
             className={({ isActive }) =>
-              `flex items-center gap-2 p-2 rounded-md ${
-                isActive ? "bg-gray-200" : ""
-              }`
+              `flex items-center gap-2 p-2 ${isActive ? "bg-gray-200" : ""}`
             }
           >
             <MdOutlineDashboard />
@@ -42,9 +40,7 @@ function SideBar() {
           <NavLink
             to="/dashboard/analytics"
             className={({ isActive }) =>
-              `flex items-center gap-2 p-2 rounded-md ${
-                isActive ? "bg-gray-200" : ""
-              }`
+              `flex items-center gap-2 p-2 ${isActive ? "bg-gray-200" : ""}`
             }
           >
             <TbBrandGoogleAnalytics />
@@ -53,7 +49,7 @@ function SideBar() {
 
           <button
             onClick={() => alert("Data button clicked")}
-            className="flex items-center gap-2 p-2 rounded-md cursor-pointer"
+            className="flex items-center gap-2 p-2 cursor-pointer"
           >
             <LuDatabaseZap />
             <span>Data</span>
