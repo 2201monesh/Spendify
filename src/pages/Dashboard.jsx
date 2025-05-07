@@ -5,10 +5,12 @@ import SideBar from "../components/SideBar";
 import Main from "../components/Main";
 import { Outlet, useLocation } from "react-router-dom";
 import ComboBox from "../components/ui/ComboBox";
+import { useAppContext } from "../context/AppContext";
 
 function Dashboard() {
   const { isSignedIn, user } = useUser();
   const location = useLocation();
+  const { setIsModalOpen } = useAppContext();
 
   const segments = location.pathname.split("/").filter(Boolean);
   const currentPage = segments[segments.length - 1] || "dashboard";
