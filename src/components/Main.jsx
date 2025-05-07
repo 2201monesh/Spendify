@@ -25,19 +25,7 @@ function Main() {
   } = useAppContext();
 
   return (
-    <div className="w-[100%] h-screen overflow-auto">
-      {/* <div className="w-[100%] h-[5%] border-b border-[#E0E0E0]"></div> */}
-      <div className="flex p-4 items-center">
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="px-2 py-2.5 w-[140px] h-[40px] cursor-pointer flex items-center justify-center bg-black text-white text-sm"
-        >
-          <IoAddCircleOutline size={15} className="mr-2" />
-          Add New
-        </button>
-        <ComboBox />
-      </div>
-
+    <div className="w-[100%] overflow-auto">
       <div className="p-4 flex">
         <StatsCard
           text="Current Balance"

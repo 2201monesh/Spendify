@@ -15,7 +15,7 @@ function SideBar() {
   };
 
   return (
-    <div className="w-[15%] h-screen p-4 bg-[#FAFAFA] flex flex-col justify-between border-r border-[#E0E0E0]">
+    <div className="w-[15%] h-screen p-4 bg-[#FAFAFA] flex flex-col justify-between border-r border-[#E5E5E5]">
       <div>
         <p className="text-xl mb-4 ml-2">Spendify</p>
 
@@ -30,7 +30,9 @@ function SideBar() {
             to="/dashboard"
             end
             className={({ isActive }) =>
-              `flex items-center gap-2 p-2 ${isActive ? "bg-gray-200" : ""}`
+              `flex items-center gap-2 p-2 ${
+                isActive ? "bg-[#FFFFFF] border border-[#E5E5E5]" : ""
+              }`
             }
           >
             <MdOutlineDashboard />
@@ -40,7 +42,9 @@ function SideBar() {
           <NavLink
             to="/dashboard/analytics"
             className={({ isActive }) =>
-              `flex items-center gap-2 p-2 ${isActive ? "bg-gray-200" : ""}`
+              `flex items-center gap-2 p-2 ${
+                isActive ? "bg-[#FFFFFF] border border-[#E5E5E5]" : ""
+              }`
             }
           >
             <TbBrandGoogleAnalytics />
