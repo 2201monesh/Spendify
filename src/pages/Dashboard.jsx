@@ -6,6 +6,7 @@ import Main from "../components/Main";
 import { Outlet, useLocation } from "react-router-dom";
 import ComboBox from "../components/ui/ComboBox";
 import { useAppContext } from "../context/AppContext";
+import { IoAddCircleOutline } from "react-icons/io5";
 
 function Dashboard() {
   const { isSignedIn, user } = useUser();
@@ -48,7 +49,7 @@ function Dashboard() {
               onClick={() => setIsModalOpen(true)}
               className="px-2 py-2.5 w-[140px] h-[40px] cursor-pointer flex items-center justify-center bg-black text-white text-sm"
             >
-              {/* <IoAddCircleOutline size={15} className="mr-2" /> */}
+              <IoAddCircleOutline size={15} className="mr-2" />
               Add New
             </button>
             <ComboBox />

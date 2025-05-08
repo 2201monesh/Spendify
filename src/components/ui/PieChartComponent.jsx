@@ -45,8 +45,10 @@ function PieChartComponent() {
   }, [filteredUserAmountList]);
 
   return (
-    <div className="w-[30%] h-[320px] border border-[#E0E0E0] shadow flex items-center flex-col p-4 mt-2">
-      <p className="font-bold mb-2">Top Spending Categories</p>
+    <div className="w-[40%] h-[460px] border border-[#E0E0E0] shadow flex items-center flex-col p-4 mt-2 mr-6">
+      <p className="text-xl font-semibold text-gray-800 mb-2 flex items-center justify-start w-[100%]">
+        Top Spending Categories
+      </p>
 
       {chartData.length === 0 ? (
         <div className="flex justify-center items-center h-full text-black text-lg">
@@ -54,12 +56,12 @@ function PieChartComponent() {
         </div>
       ) : (
         <div className="flex items-center">
-          <PieChart width={200} height={250} className="mr-8">
+          <PieChart width={250} height={280} className="mr-8 mt-8">
             <Pie
               data={chartData}
               nameKey="name"
-              innerRadius={80}
-              outerRadius={100}
+              innerRadius={100}
+              outerRadius={120}
               fill="#8884d8"
               paddingAngle={5}
               dataKey="value"
