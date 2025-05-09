@@ -11,7 +11,7 @@ function Header() {
     <div className="w-screen h-[60px] border-b border-dashed flex items-center justify-center">
       <div className="w-[75%] h-[60px] border-l border-r border-dashed flex items-center justify-between px-4">
         <div>
-          <p className="">Spendify</p>
+          <p className="text-2xl font-bold">Spendify</p>
         </div>
         <div>
           <SignedOut>

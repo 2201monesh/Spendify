@@ -11,11 +11,15 @@ function Home() {
           className="w-[75%] h-screen border-l border-r border-dashed"
           style={{ height: "calc(100vh - 60px)" }}
         >
-          <div className="pt-8 p-4 border-b border-dashed">
-            <p className="text-4xl font-bold">
-              Track your Expenses like never before.
+          <div className="pt-8 p-4 border-b border-dashed flex justify-center items-center flex-col h-[60%]">
+            <p className="text-5xl font-bold">
+              A smart tracker acting like your
             </p>
-            <p className="text-4xl font-bold mt-4">Get started now.</p>
+            <p className="text-5xl font-bold mt-4">personal finance manager.</p>
+            <p className="text-xl mt-4">
+              Just the essentials—no clutter, no confusion
+            </p>
+            <p className="text-xl">just your money, simplified.</p>
             <div className="my-4">
               <button className="border py-1 px-4 bg-black text-white">
                 <SignedOut>
