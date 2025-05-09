@@ -173,7 +173,7 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/10 backdrop-blur-[2px] flex justify-center items-center z-50">
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-[2px] flex justify-center items-center z-50">
       <div className="w-96 bg-white px-4 py-2 relative">
         {/* Heading */}
         <div className="flex items-center">
