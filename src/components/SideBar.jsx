@@ -52,7 +52,7 @@ function SideBar() {
           </NavLink>
 
           <button
-            onClick={() => alert("Data button clicked")}
+            onClick={() => console.log("Data option clicked")}
             className="flex items-center gap-2 p-2 cursor-pointer"
           >
             <LuDatabaseZap />
