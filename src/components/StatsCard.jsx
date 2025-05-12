@@ -4,16 +4,16 @@ import { IoTrendingUp } from "react-icons/io5";
 import { useAppContext } from "../context/AppContext";
 
 function StatsCard({ text, amount, logo, percentageChange }) {
-  const { selectedTimeRange, isStatsCardModalOpen, setIsStatsCardModalOpen } =
+  const { selectedTimeRange, statsCardModal, setStatsCardModal } =
     useAppContext();
 
   const handleStatsCardClick = () => {
     const newState = {
-      flag: !isStatsCardModalOpen.flag,
+      flag: !statsCardModal.flag,
       type: text,
     };
 
-    setIsStatsCardModalOpen(newState);
+    setStatsCardModal(newState);
     console.log("Updated state (manually):", newState);
   };
 

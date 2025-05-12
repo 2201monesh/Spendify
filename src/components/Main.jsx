@@ -63,10 +63,7 @@ function Main() {
           logo={<BiExport className="text-red-500" />}
         />
       </div>
-      <StatsCardModal
-        isOpen={isStatsCardModalOpen}
-        onClose={() => handleClose}
-      />
+      <StatsCardModal />
       <div className="p-4">
         <ChartSection />
       </div>

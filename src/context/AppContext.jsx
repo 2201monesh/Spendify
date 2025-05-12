@@ -429,7 +429,7 @@ export const AppProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userAmountList, setUserAmountList] = useState(userArray);
   const [selectedTimeRange, setSelectedTimeRange] = useState("All Time");
-  const [isStatsCardModalOpen, setIsStatsCardModalOpen] = useState({
+  const [statsCardModal, setStatsCardModal] = useState({
     flag: false,
     type: "",
   });
@@ -557,8 +557,8 @@ export const AppProvider = ({ children }) => {
         percentageIncomeChange,
         percentageExpenseChange,
         percentageBalanceChange,
-        isStatsCardModalOpen,
-        setIsStatsCardModalOpen,
+        statsCardModal,
+        setStatsCardModal,
       }}
     >
       {children}
