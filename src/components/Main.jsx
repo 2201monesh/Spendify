@@ -8,6 +8,7 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import { BiExport } from "react-icons/bi";
 import { BiImport } from "react-icons/bi";
 import { TbReportMoney } from "react-icons/tb";
+import StatsCardModal from "./ui/StatsCardModal";
 
 const timeOptions = ["All Time", "7 Days", "1 Month", "3 Months"];
 
@@ -16,18 +17,28 @@ function Main() {
     totalExpenses,
     totalIncome,
     currentBalance,
-    isModalOpen,
     setIsModalOpen,
     setUserAmountList,
     percentageIncomeChange,
     percentageExpenseChange,
     percentageBalanceChange,
     isStatsCardModalOpen,
+    setIsStatsCardModalOpen,
   } = useAppContext();
 
   useEffect(() => {
     console.log("Hello from stats card modal", isStatsCardModalOpen);
   }, [isStatsCardModalOpen]);
+
+  const handleClose = () => {
+    const newState = {
+      flag: !isStatsCardModalOpen.flag,
+      ...isStatsCardModalOpen,
+    };
+
+    setIsStatsCardModalOpen(newState);
+    console.log("Updated state (monesh):", newState);
+  };
 
   return (
     <div className="w-[100%] overflow-auto">
@@ -38,6 +49,7 @@ function Main() {
           percentageChange={percentageBalanceChange}
           logo={<TbReportMoney />}
         />
+
         <StatsCard
           text="Income"
           amount={totalIncome}
@@ -51,6 +63,10 @@ function Main() {
           logo={<BiExport className="text-red-500" />}
         />
       </div>
+      <StatsCardModal
+        isOpen={isStatsCardModalOpen}
+        onClose={() => handleClose}
+      />
       <div className="p-4">
         <ChartSection />
       </div>
