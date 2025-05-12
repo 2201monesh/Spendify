@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import StatsCard from "./StatsCard";
 import ChartSection from "./ChartSection";
 import { useAppContext } from "../context/AppContext";
@@ -22,7 +22,12 @@ function Main() {
     percentageIncomeChange,
     percentageExpenseChange,
     percentageBalanceChange,
+    isStatsCardModalOpen,
   } = useAppContext();
+
+  useEffect(() => {
+    console.log("Hello from stats card modal", isStatsCardModalOpen);
+  }, [isStatsCardModalOpen]);
 
   return (
     <div className="w-[100%] overflow-auto">
