@@ -429,6 +429,10 @@ export const AppProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userAmountList, setUserAmountList] = useState(userArray);
   const [selectedTimeRange, setSelectedTimeRange] = useState("All Time");
+  const [isStatsCardModalOpen, setIsStatsCardModalOpen] = useState({
+    flag: false,
+    type: "",
+  });
 
   const filteredUserAmountList = useMemo(() => {
     if (selectedTimeRange === "All Time") return userAmountList;
@@ -553,6 +557,8 @@ export const AppProvider = ({ children }) => {
         percentageIncomeChange,
         percentageExpenseChange,
         percentageBalanceChange,
+        isStatsCardModalOpen,
+        setIsStatsCardModalOpen,
       }}
     >
       {children}

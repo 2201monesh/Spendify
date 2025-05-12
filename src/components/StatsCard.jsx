@@ -1,12 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { IoTrendingDown } from "react-icons/io5";
 import { IoTrendingUp } from "react-icons/io5";
 import { useAppContext } from "../context/AppContext";
 
 function StatsCard({ text, amount, logo, percentageChange }) {
-  const { selectedTimeRange } = useAppContext();
+  const { selectedTimeRange, isStatsCardModalOpen, setIsStatsCardModalOpen } =
+    useAppContext();
+
+  const handleStatsCardClick = () => {
+    const newState = {
+      flag: !isStatsCardModalOpen.flag,
+      type: text,
+    };
+
+    setIsStatsCardModalOpen(newState);
+    console.log("Updated state (manually):", newState);
+  };
+
   return (
-    <div className="border border-[#E0E0E0] shadow w-[25%] p-4 mr-4 bg-white">
+    <div
+      className="border border-[#E0E0E0] shadow w-[25%] p-4 mr-4 bg-white cursor-pointer"
+      onClick={handleStatsCardClick}
+    >
       <div className="flex">
         <p className="mr-2">{logo}</p>
         <p className="text-sm mb-1 text-[#71717A]">{text}</p>
