@@ -8,7 +8,6 @@ function StatsCardModal() {
   const { statsCardModal, setStatsCardModal, filteredUserAmountList } =
     useAppContext();
 
-  // ✅ Always call hooks unconditionally
   const { chartData, total } = useMemo(() => {
     const type = statsCardModal.type === "Expenses" ? "Expense" : "Income";
 
@@ -38,14 +37,13 @@ function StatsCardModal() {
     return { chartData, total };
   }, [filteredUserAmountList, statsCardModal]);
 
-  // ✅ Return early after hooks
   if (!statsCardModal.flag) return null;
 
   const closeModal = () => setStatsCardModal({ flag: false, type: "" });
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-[2px] flex justify-center items-center z-50">
-      <div className="bg-white w-[500px] h-[500px] shadow-lg rounded-lg p-6 flex flex-col">
+      <div className="bg-white w-[450px] h-[500px] p-4 flex flex-col">
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
           <div className="text-lg font-semibold">
@@ -57,7 +55,7 @@ function StatsCardModal() {
           </div>
           <button
             onClick={closeModal}
-            className="text-sm text-white bg-black px-4 py-1.5 rounded"
+            className="text-sm text-white bg-black px-4 py-1.5 cursor-pointer"
           >
             Close
           </button>
@@ -72,12 +70,12 @@ function StatsCardModal() {
           <div className="flex flex-grow items-center justify-around">
             {/* Pie Chart */}
             <div className="relative">
-              <PieChart width={250} height={250}>
+              <PieChart width={220} height={220}>
                 <Pie
                   data={chartData}
                   nameKey="name"
-                  innerRadius={70}
-                  outerRadius={100}
+                  innerRadius={80}
+                  outerRadius={110}
                   dataKey="value"
                   paddingAngle={3}
                 >
@@ -98,9 +96,6 @@ function StatsCardModal() {
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <p className="font-semibold text-sm text-center leading-tight">
                   ₹{total.toFixed(2)} <br />
-                  <span className="text-xs text-gray-500">
-                    {statsCardModal.type}
-                  </span>
                 </p>
               </div>
             </div>
@@ -111,7 +106,7 @@ function StatsCardModal() {
                 <div className="mb-3" key={entry.name}>
                   <div className="flex items-center mb-1">
                     <div
-                      className="w-3.5 h-3.5 rounded-full mr-2"
+                      className="w-3.5 h-3.5 mr-2"
                       style={{ backgroundColor: COLORS[index % COLORS.length] }}
                     ></div>
                     <p className="font-medium">{entry.name}</p>
