@@ -9,7 +9,7 @@ function StatsCardModal() {
     useAppContext();
 
   const { chartData, total } = useMemo(() => {
-    const type = statsCardModal.type === "Expenses" ? "Expense" : "Income";
+    const type = statsCardModal.type === "Income" ? "Income" : "Expense";
 
     const filtered = filteredUserAmountList?.filter(
       (item) => item.amountType === type
@@ -95,7 +95,8 @@ function StatsCardModal() {
               </PieChart>
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <p className="font-semibold text-sm text-center leading-tight">
-                  ₹{total.toFixed(2)} <br />
+                  <span className="text-gray-600">{statsCardModal.type}</span>
+                  <br />₹{total.toFixed(2)} <br />
                 </p>
               </div>
             </div>
