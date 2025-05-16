@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 function ComboBox() {
   const [showFilter, setShowFilter] = useState(false);
-  const [buttonText, setButtonText] = useState("Set Range");
+  const [buttonText, setButtonText] = useState("Select Range");
   const dropdownRef = useRef(null);
 
   const { selectedTimeRange, setSelectedTimeRange } = useAppContext();
