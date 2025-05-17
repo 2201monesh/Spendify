@@ -8,6 +8,8 @@ import { MdOutlineDescription } from "react-icons/md";
 import { FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoMdCheckmark } from "react-icons/io";
+import { CiCalendar } from "react-icons/ci";
+
 import {
   FaHome,
   FaShoppingCart,
@@ -29,6 +31,7 @@ import { FaMoneyBillWave } from "react-icons/fa";
 import { BsFillCarFrontFill } from "react-icons/bs";
 
 function ExpenseCard({ isOpen, onClose, onSubmit }) {
+  const [isRecurring, setIsRecurring] = useState(false);
   const [rawValue, setRawValue] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
@@ -219,7 +222,7 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
               />
               <div className="text-center mt-2">
                 <button
-                  className="border border-gray-400 text-gray-500 px-3 py-1 cursor-pointer w-full"
+                  className="border border-gray-400 text-gray-600 px-3 py-1 cursor-pointer w-full"
                   onClick={selectToday}
                 >
                   Select Today
@@ -328,6 +331,37 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
               </motion.div>
             )}
           </AnimatePresence>
+        </div>
+        {/* {recurring transaction section} */}
+        <div className="mt-6 flex justify-between">
+          <div className="flex">
+            <span className="mr-1.5">
+              <CiCalendar size={20} />
+            </span>
+            <div>
+              <p className="text-sm">Add as recurring</p>
+              <p className="text-xs w-[90%] text-gray-600">
+                This transaction will be added again the following months at the
+                same day as today
+              </p>
+            </div>
+          </div>
+          {/* <div className="">
+            <button>add</button>
+          </div> */}
+          {/* Custom Toggle */}
+          <div
+            onClick={() => setIsRecurring(!isRecurring)}
+            className={`w-14 h-6 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer transition-colors duration-300 ${
+              isRecurring ? "bg-green-500" : "bg-gray-300"
+            }`}
+          >
+            <div
+              className={`bg-white w-4 h-4 rounded-full shadow-md transform transition-transform duration-300 ${
+                isRecurring ? "translate-x-4" : "translate-x-0"
+              }`}
+            />
+          </div>
         </div>
         <div className="mt-6 mb-2">
           <div
