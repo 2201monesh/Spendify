@@ -1,8 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppContext } from "../context/AppContext";
 
 function RecentActivity() {
   const { filteredUserAmountList } = useAppContext();
+
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const categories = [
+    "All",
+    "rent",
+    "groceries",
+    "utilities",
+    "freelance",
+    "food",
+    "transport",
+    "shopping",
+    "bonus",
+    "Games",
+    "Health",
+    "Insurance",
+    "Education",
+    "gift",
+    "shopping",
+  ];
 
   useEffect(() => {
     console.log(filteredUserAmountList);
@@ -12,11 +32,40 @@ function RecentActivity() {
     ?.slice()
     .sort((a, b) => new Date(a.date) - new Date(b.date));
 
+  const filteredTransactions = filteredUserAmountList
+    ?.filter((txn) =>
+      selectedCategory === "All" ? true : txn.category === selectedCategory
+    )
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+
   return (
     <div className="h-[460px] border border-[#E0E0E0] shadow mt-2 w-[60%] mr-4 p-4 bg-white">
-      <p className="text-xl font-semibold text-gray-800">
+      {/* <p className="text-xl font-semibold text-gray-800">
         Recent Transaction Activity
-      </p>
+      </p> */}
+      <div className="flex justify-between items-center mb-4">
+        <p className="text-xl font-semibold text-gray-800">
+          Recent Transaction Activity
+        </p>
+        <div className="flex items-center space-x-2">
+          <label htmlFor="categoryFilter" className="text-sm text-gray-600">
+            Filter by:
+          </label>
+          <select
+            id="categoryFilter"
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="border border-gray-300 px-3 py-1 text-sm bg-white cursor-pointer focus:outline-none focus:ring-1 focus:ring-black"
+          >
+            {categories.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
       <div className="overflow-x-auto mt-4 overflow-y-scroll h-[90%]">
         <table className="min-w-full border border-gray-200">
           <thead className="bg-gray-100 sticky top-0 z-10">
@@ -36,8 +85,8 @@ function RecentActivity() {
             </tr>
           </thead>
           <tbody>
-            {sortedTransactions?.length > 0 ? (
-              sortedTransactions
+            {filteredTransactions?.length > 0 ? (
+              filteredTransactions
                 .slice() // Copy array
                 .reverse() // Most recent first
                 .map((txn, index) => (
