@@ -42,7 +42,7 @@ function Dashboard() {
       <SideBar />
       {/* <Main /> */}
       <div className="flex-1 h-screen overflow-auto">
-        <div className="flex py-0 px-4 items-center justify-between border-b border-[#E5E5E5]">
+        <div className="flex py-0 px-4 items-center justify-between border-b border-[#E5E5E5] sticky top-0 bg-white z-1">
           <p className="text-xl">{pageTitle}</p>
           <div className="flex items-center">
             <button

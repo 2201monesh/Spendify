@@ -10,7 +10,11 @@ function AmountTable() {
   const totalItems = filteredUserAmountList?.length || 0;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-  const paginatedData = filteredUserAmountList?.slice(
+  const sortedData = [...(filteredUserAmountList || [])].sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
+
+  const paginatedData = sortedData.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
