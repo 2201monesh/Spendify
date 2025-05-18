@@ -346,10 +346,6 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
               </p>
             </div>
           </div>
-          {/* <div className="">
-            <button>add</button>
-          </div> */}
-          {/* Custom Toggle */}
           <div
             onClick={() => setIsRecurring(!isRecurring)}
             className={`w-14 h-6 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer transition-colors duration-300 ${
@@ -358,7 +354,7 @@ function ExpenseCard({ isOpen, onClose, onSubmit }) {
           >
             <div
               className={`bg-white w-4 h-4 rounded-full shadow-md transform transition-transform duration-300 ${
-                isRecurring ? "translate-x-4" : "translate-x-0"
+                isRecurring ? "translate-x-3.5" : "translate-x-0"
               }`}
             />
           </div>

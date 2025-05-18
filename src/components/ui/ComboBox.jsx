@@ -36,7 +36,7 @@ function ComboBox() {
   };
 
   return (
-    <div className="relative p-4" ref={dropdownRef}>
+    <div className="relative m-3" ref={dropdownRef}>
       <button
         className="btn position-sticky w-[150px] h-[40px] border border-[#E0E0E0] shadow cursor-pointer bg-white"
         onClick={toggleShowFilter}
@@ -46,7 +46,7 @@ function ComboBox() {
       </button>
       <AnimatePresence>
         {showFilter && (
-          <div className="absolute top-14 left-3 z-50 mt-1 bg-white shadow-lg">
+          <div className="absolute top-14 left-0 z-50 mt-1 bg-white shadow-lg">
             <FilterDropdown
               handleButtonText={(value) => {
                 handleButtonText(value);

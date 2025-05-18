@@ -45,7 +45,7 @@ function PieChartComponent() {
   }, [filteredUserAmountList]);
 
   return (
-    <div className="w-[40%] h-[460px] border border-[#E0E0E0] shadow flex items-center flex-col p-4 mt-2 mr-6">
+    <div className="w-[40%] h-[460px] border border-[#E0E0E0] shadow flex items-center flex-col p-4 mt-2 mr-6 bg-white">
       <p className="text-xl font-semibold text-gray-800 mb-2 flex items-center justify-start w-[100%]">
         Top Spending Categories
       </p>

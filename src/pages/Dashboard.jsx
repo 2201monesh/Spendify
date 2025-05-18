@@ -42,12 +42,12 @@ function Dashboard() {
       <SideBar />
       {/* <Main /> */}
       <div className="flex-1 h-screen overflow-auto">
-        <div className="flex p-4 items-center justify-between">
-          <p className="text-2xl font-semibold">{pageTitle}</p>
+        <div className="flex py-0 px-4 items-center justify-between border-b border-[#E5E5E5]">
+          <p className="text-xl">{pageTitle}</p>
           <div className="flex items-center">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="px-2 py-2.5 w-[140px] h-[40px] cursor-pointer flex items-center justify-center bg-black text-white text-sm"
+              className="px-2 w-[140px] h-[40px] cursor-pointer flex items-center justify-center bg-black text-white text-sm"
             >
               <IoAddCircleOutline size={15} className="mr-2" />
               Add New

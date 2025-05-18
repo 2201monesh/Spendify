@@ -41,7 +41,7 @@ function Main() {
   };
 
   return (
-    <div className="w-[100%] overflow-auto">
+    <div className="w-[100%] overflow-auto bg-white">
       <div className="p-4 flex">
         <StatsCard
           text="Current Balance"
